@@ -14,7 +14,7 @@ class Record (val doc: String, var vector: Map[String, Double]) extends Serializ
   val tweet: String = doc
   var weighsVector = vector.withDefaultValue(0.0)
   var state: State = Unvisited
-  var neighbors: Set[Record] = Set()
+  var neighbors: Option[RDD[Record]] = None
 
   def apply_idf (idf: Map[String, Double]): Unit = {
     this.weighsVector.transform((key, n) => n * idf(key))

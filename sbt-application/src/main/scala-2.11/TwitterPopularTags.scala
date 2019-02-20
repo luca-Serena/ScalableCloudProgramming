@@ -124,6 +124,8 @@ object TwitterPopularTags {
       println("Vector for each document: " + a)
     }
 
+
+    MyDbscan.DbScan(sc, records)
     sparkSession.stop()
   }
 }
